@@ -26,9 +26,9 @@ EOT
     storage_sku         = string
     subnet_id           = string
     zone                = string
-    offer_id            = optional(string, "qumulo-saas-mpp")
-    plan_id             = optional(string, "azure-native-qumulo-v3")
-    publisher_id        = optional(string, "qumulo1584033880660")
+    offer_id            = optional(string) # Default: "qumulo-saas-mpp"
+    plan_id             = optional(string) # Default: "azure-native-qumulo-v3"
+    publisher_id        = optional(string) # Default: "qumulo1584033880660"
     tags                = optional(map(string))
   }))
 }
