@@ -3,6 +3,8 @@ variable "qumulo_file_systems" {
 Map of qumulo_file_systems, attributes below
 Required:
     - admin_password
+    - admin_password_key_vault_id (alternative to admin_password - read from Key Vault instead)
+    - admin_password_key_vault_secret_name (alternative to admin_password - read from Key Vault instead)
     - email
     - location
     - name
@@ -18,18 +20,20 @@ Optional:
 EOT
 
   type = map(object({
-    admin_password      = string
-    email               = string
-    location            = string
-    name                = string
-    resource_group_name = string
-    storage_sku         = string
-    subnet_id           = string
-    zone                = string
-    offer_id            = optional(string) # Default: "qumulo-saas-mpp"
-    plan_id             = optional(string) # Default: "azure-native-qumulo-v3"
-    publisher_id        = optional(string) # Default: "qumulo1584033880660"
-    tags                = optional(map(string))
+    admin_password                       = string
+    admin_password_key_vault_id          = optional(string)
+    admin_password_key_vault_secret_name = optional(string)
+    email                                = string
+    location                             = string
+    name                                 = string
+    resource_group_name                  = string
+    storage_sku                          = string
+    subnet_id                            = string
+    zone                                 = string
+    offer_id                             = optional(string) # Default: "qumulo-saas-mpp"
+    plan_id                              = optional(string) # Default: "azure-native-qumulo-v3"
+    publisher_id                         = optional(string) # Default: "qumulo1584033880660"
+    tags                                 = optional(map(string))
   }))
 }
 
