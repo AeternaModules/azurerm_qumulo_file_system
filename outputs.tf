@@ -1,3 +1,7 @@
+output "qumulo_file_systems_id" {
+  description = "Map of id values across all qumulo_file_systems, keyed the same as var.qumulo_file_systems"
+  value       = { for k, v in azurerm_qumulo_file_system.qumulo_file_systems : k => v.id }
+}
 output "qumulo_file_systems_admin_password" {
   description = "Map of admin_password values across all qumulo_file_systems, keyed the same as var.qumulo_file_systems"
   value       = { for k, v in azurerm_qumulo_file_system.qumulo_file_systems : k => v.admin_password }
